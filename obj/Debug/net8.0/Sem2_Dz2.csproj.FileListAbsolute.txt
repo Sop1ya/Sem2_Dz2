@@ -1,0 +1,14 @@
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\bin\Debug\net8.0\Sem2_Dz2.exe
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\bin\Debug\net8.0\Sem2_Dz2.deps.json
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\bin\Debug\net8.0\Sem2_Dz2.runtimeconfig.json
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\bin\Debug\net8.0\Sem2_Dz2.dll
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\bin\Debug\net8.0\Sem2_Dz2.pdb
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\Sem2_Dz2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\Sem2_Dz2.AssemblyInfoInputs.cache
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\Sem2_Dz2.AssemblyInfo.cs
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\Sem2_Dz2.csproj.CoreCompileInputs.cache
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\Sem2_Dz2.dll
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\refint\Sem2_Dz2.dll
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\Sem2_Dz2.pdb
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\Sem2_Dz2.genruntimeconfig.cache
+C:\Users\tazee\source\repos\Sem2_Dz2\Sem2_Dz2\obj\Debug\net8.0\ref\Sem2_Dz2.dll
