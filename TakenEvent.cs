@@ -44,10 +44,14 @@ namespace Sem2_Dz2
         }
 
         public string ToLogLine()
-            => $"{shelf}|{slot}|{item}";
+        {
+            return $"{shelf}|{slot}|{item}";
+        } 
 
         public string ToScreenLine()
-            => $"Изъятие | полка {shelf} | слот {slot} | товар «{item}»";
+        {
+            return $"Изъятие | полка {shelf} | слот {slot} | товар «{item}»";
+        }    
 
         public static TakenEvent FromLogLine(string line)
         {

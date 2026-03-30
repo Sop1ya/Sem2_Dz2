@@ -231,19 +231,19 @@ internal class Program
 
     static void ShowLogs()
     {
-        Console.WriteLine("\n--- Размещения ---");
+        Console.WriteLine("--- Размещения ---");
         foreach (var e in placedJournal.GetAll())
             Console.WriteLine(e.ToScreenLine());
 
-        Console.WriteLine("\n--- Изъятия ---");
+        Console.WriteLine("--- Изъятия ---");
         foreach (var e in takenJournal.GetAll())
             Console.WriteLine(e.ToScreenLine());
 
-        Console.WriteLine("\n--- Переносы ---");
+        Console.WriteLine("--- Переносы ---");
         foreach (var e in movedJournal.GetAll())
             Console.WriteLine(e.ToScreenLine());
 
-        Console.WriteLine("\n--- Ошибки ---");
+        Console.WriteLine("--- Ошибки ---");
         foreach (var e in failedJournal.GetAll())
             Console.WriteLine(e.ToScreenLine());
 
@@ -266,19 +266,28 @@ internal class Program
         if (File.Exists("taken.log"))
         {
             foreach (var line in File.ReadAllLines("taken.log"))
+            {
                 takenJournal.Add(TakenEvent.FromLogLine(line));
+            }
+                
         }
 
         if (File.Exists("moved.log"))
         {
             foreach (var line in File.ReadAllLines("moved.log"))
+            {
                 movedJournal.Add(MovedEvent.FromLogLine(line));
+            }
+                
         }
 
         if (File.Exists("failed.log"))
         {
             foreach (var line in File.ReadAllLines("failed.log"))
+            {
                 failedJournal.Add(FailedAttemptEvent.FromLogLine(line));
+            }
+                
         }
     }
 
