@@ -51,12 +51,13 @@ namespace Sem2_Dz2
         public string ToScreenLine()
         {
             return $"Изъятие | полка {shelf} | слот {slot} | товар «{item}»";
-        }    
+        }
 
         public static TakenEvent FromLogLine(string line)
         {
             var p = line.Split('|');
             return new TakenEvent(p[0], int.Parse(p[1]), p[2]);
         }
+
     }
 }

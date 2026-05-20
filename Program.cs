@@ -17,32 +17,12 @@ internal class Program
     static Journal<TakenEvent> takenJournal = new Journal<TakenEvent>();
     static Journal<MovedEvent> movedJournal = new Journal<MovedEvent>();
     static Journal<FailedAttemptEvent> failedJournal = new Journal<FailedAttemptEvent>();
-
-    public static int IntInput()
-    {
-        while (true)
-        {
-            string str = Console.ReadLine();
-            if (int.TryParse(str, out int Int))
-            {
-                return Int;
-            }
-            else
-            {
-                Console.WriteLine("Некорректный ввод");
-            }
-        }
-    }
+    static Journal<ExistEvent> existJournal = new Journal<ExistEvent>();
 
     static void Main()
     {
 
-        
-
         LoadLogs();
-
-        
-
         while (true)
         {
 
@@ -91,8 +71,12 @@ internal class Program
                 Console.WriteLine("Некорректный ввод");
             }
             Console.WriteLine();
-        }
 
+            Console.ReadKey();
+            Console.Clear();
+
+        }
+        
     }
 
     static Shelf GetShelf(string name)
@@ -153,7 +137,6 @@ internal class Program
     {
         string shelfName = ReadShelf();
         int slot = ReadSlot();
-
         var shelf = GetShelf(shelfName);
 
         if (shelf.Get(slot) != null)
@@ -172,6 +155,23 @@ internal class Program
 
         Console.WriteLine("OK");
     }
+
+    static void SyncExistJournal()
+    {
+        existJournal.GetAll().Clear();
+        for (int i=0; i<s; i++)
+        {
+            if (shelfA.Get(i)!=null)
+            {
+                existJournal.Add(new ExistEvent("A", i + 1, shelfA.Get(i)));
+            }
+            if (shelfB.Get(i) != null)
+            {
+                existJournal.Add(new ExistEvent("B", i + 1, shelfB.Get(i)));
+            }
+        }
+    }
+
 
     static void Take()
     {
@@ -250,16 +250,26 @@ internal class Program
         Console.WriteLine();
     }
 
+    
+        
     static void LoadLogs()
     {
+        if (File.Exists("exist.log"))
+        {
+            foreach (var line in File.ReadAllLines("exist.log"))
+            {
+                var e = ExistEvent.FromLogLine(line);
+                existJournal.Add(e);
+
+                GetShelf(e.Shelf).Put(e.Slot - 1, e.Item);
+            }
+        }
+
         if (File.Exists("placed.log"))
         {
             foreach (var line in File.ReadAllLines("placed.log"))
             {
-                var e = PlacedEvent.FromLogLine(line);
-                placedJournal.Add(e);
-
-                GetShelf(e.Shelf).Put(e.Slot - 1, e.Item);
+                placedJournal.Add(PlacedEvent.FromLogLine(line));
             }
         }
 
@@ -292,11 +302,13 @@ internal class Program
     }
 
     static void SaveLogs()
-    {
+    {   
+        SyncExistJournal();
         placedJournal.SaveToFile("placed.log");
         takenJournal.SaveToFile("taken.log");
         movedJournal.SaveToFile("moved.log");
         failedJournal.SaveToFile("failed.log");
+        existJournal.SaveToFile("exist.log");
 
         Console.WriteLine("Журналы сохранены.");
     }

@@ -16,7 +16,6 @@ namespace Sem2_Dz2
         private string item;
 
 
-
         public string FromShelf 
         { 
             get
@@ -55,10 +54,10 @@ namespace Sem2_Dz2
 
         public MovedEvent(string fs, int fslot, string ts, int tslot, string item)
         {
-            this.fromShelf = fs;
-            this.fromSlot = fslot;
-            this.toShelf = ts;
-            this.toSlot = tslot;
+            fromShelf = fs;
+            fromSlot = fslot;
+            toShelf = ts;
+            toSlot = tslot;
             this.item = item;
         }
 
@@ -76,7 +75,7 @@ namespace Sem2_Dz2
         public static MovedEvent FromLogLine(string line)
         {
             string[] p = line.Split('|');
-
+            
             return new MovedEvent(p[0],int.Parse(p[1]),p[2],int.Parse(p[3]),p[4]);
         }
     }

@@ -32,7 +32,6 @@ namespace Sem2_Dz2
             return item;
         }
 
-        
 
         public void Print(string name)
         {
